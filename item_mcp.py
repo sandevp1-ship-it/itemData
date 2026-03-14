@@ -73,7 +73,7 @@ class TradingPartnerRelationship:
 # -------- Modify Methods --------
 
 @mcp.tool(description="Modify the description of an item,  Used for testing item description updates.")
-def modify_item(item: Item) -> Item:
+def fetch_item(item: Item) -> Item:
     """
     Updates the item description field.
 
@@ -89,13 +89,12 @@ def modify_item(item: Item) -> Item:
 
 
 @mcp.tool(description="Modify the trading partner item number, Used for testing trading partner item updates.")
-def modify_trading_partner_item(tpi: TradingPartnerItem) -> TradingPartnerItem:
+def fetch_trading_partner_item(tpi: TradingPartnerItem) -> TradingPartnerItem:
     """
-    Updates the trading partner's item number.
+    sharing the trading partner's item number.
 
     Logic:
-    - Only the 'tradingPartnerItemNumber' field is modified.
-    - The value is prefixed with 'modified_'.
+    - sending the update tradingpartner Item if any changes
     """
     for f in fields(tpi):
         value = getattr(tpi, f.name)
@@ -105,14 +104,12 @@ def modify_trading_partner_item(tpi: TradingPartnerItem) -> TradingPartnerItem:
 
 
 @mcp.tool(description="Toggle the trading partner relationship status between Active and Inactive, used for testing trading partner relationship updates.")
-def modify_trading_partner_relationship(tpr: TradingPartnerRelationship) -> TradingPartnerRelationship:
+def fetch_trading_partner_relationship(tpr: TradingPartnerRelationship) -> TradingPartnerRelationship:
     """
-    Updates the relationship status.
+    fetches the relationship status.
 
     Logic:
-    - If relationshipStatus is 'Active', it becomes 'Inactive'.
-    - Otherwise it becomes 'Active'.
-    - The resulting value is prefixed with 'modified_'.
+    - checks relationshipStatus is 'Active' or  'Inactive'.
     """
     for f in fields(tpr):
         value = getattr(tpr, f.name)
