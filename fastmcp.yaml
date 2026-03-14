@@ -1,5 +1,0 @@
-auth:
-  enabled: true
-  api_keys:
-    - name: testkey
-      key: fmcp_Xvi0MyfuCuOuYJ0l1NDfsV4OjT2tmVrAzOQad8heEU0
